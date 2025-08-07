@@ -271,4 +271,19 @@ body {
         font-size: 0.875rem;
         line-height: 1.25rem;
     }
+    
+    /* Smaller social icons for mobile */
+    .social-link .w-12 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .social-link .h-12 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .social-link i {
+        font-size: 1.25rem;
+    }
 }
