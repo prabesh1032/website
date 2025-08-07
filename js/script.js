@@ -163,6 +163,127 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
+    // Counter Animation Function
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 100; // Lower number = faster animation (changed from 200 to 100)
+
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const increment = target / speed;
+            let count = 0;
+
+            // Reset counter to 0 before starting animation
+            counter.innerText = '0';
+
+            const updateCounter = () => {
+                if (count < target) {
+                    count += increment;
+                    // Handle decimal numbers (like 4.9)
+                    if (target % 1 !== 0) {
+                        counter.innerText = Math.min(count, target).toFixed(1);
+                    } else {
+                        counter.innerText = Math.floor(Math.min(count, target));
+                    }
+                    setTimeout(updateCounter, 5); // Faster update interval (changed from 10 to 5)
+                } else {
+                    // Ensure final value is exactly the target
+                    if (target % 1 !== 0) {
+                        counter.innerText = target.toFixed(1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+            };
+
+            updateCounter();
+        });
+    }
+
+    // Skill Progress Bar Animation Function
+    function animateSkillBars() {
+        console.log('Starting skill bar animation...'); // Debug log
+        const progressBars = document.querySelectorAll('.skill-progress-bar');
+        
+        progressBars.forEach((bar, index) => {
+            const targetWidth = bar.getAttribute('data-width');
+            
+            if (targetWidth) {
+                console.log(`Animating bar ${index + 1} to ${targetWidth}%`); // Debug log
+                
+                // Reset the width to 0
+                bar.style.width = '0%';
+                bar.style.transition = 'none';
+                
+                // Force a reflow to ensure the width is set to 0
+                bar.offsetHeight;
+                
+                // Animate to target width with staggered delay
+                setTimeout(() => {
+                    bar.style.transition = 'width 2s ease-out';
+                    bar.style.width = targetWidth + '%';
+                }, index * 150); // 150ms delay between each bar
+            }
+        });
+    }
+
+    // Intersection Observer for Counter Animation
+    const statsSection = document.querySelector('#stats');
+    if (statsSection) {
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Trigger animation every time the section comes into view
+                    setTimeout(() => {
+                        animateCounters();
+                    }, 300);
+                } else {
+                    // Reset counters to 0 when section goes out of view
+                    const counters = document.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        counter.innerText = '0';
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3, // Trigger when 30% of the section is visible
+            rootMargin: '0px'
+        });
+
+        statsObserver.observe(statsSection);
+    }
+
+    // Intersection Observer for Skills Progress Bars Animation
+    const skillsSection = document.querySelector('#skills');
+    if (skillsSection) {
+        const skillsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add a small delay to ensure the section is properly visible
+                    setTimeout(() => {
+                        console.log('Animating skill bars...'); // Debug log
+                        animateSkillBars();
+                    }, 300);
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the section is visible (more sensitive)
+            rootMargin: '0px'
+        });
+
+        skillsObserver.observe(skillsSection);
+        
+        // Also trigger animation on page load if skills section is already visible
+        setTimeout(() => {
+            const rect = skillsSection.getBoundingClientRect();
+            const isVisible = (rect.top <= window.innerHeight && rect.bottom >= 0);
+            if (isVisible) {
+                console.log('Skills section visible on load, animating...'); // Debug log
+                animateSkillBars();
+            }
+        }, 1000);
+    }
+
     // Add loading animation
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');

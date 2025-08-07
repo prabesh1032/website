@@ -200,18 +200,38 @@ img {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
+    position: absolute;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
-    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, #fc00ff 0%, #00dbde 100%);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Make scrollbar overlay instead of taking space */
+html {
+    scrollbar-gutter: stable;
+    overflow-y: overlay;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Skill Progress Bar Animation */
+.skill-progress-bar {
+    transition: width 2s ease-out;
 }
