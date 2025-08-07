@@ -287,3 +287,78 @@ body {
         font-size: 1rem !important;
     }
 }
+
+/* Cool Animations for Resume Hero Section */
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ping-slow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes float-up-down {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+.animate-ping-slow {
+    animation: ping-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-float {
+    animation: float-up-down 3s ease-in-out infinite;
+}
+
+/* Animation delays */
+.animation-delay-500 {
+    animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-1500 {
+    animation-delay: 1.5s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* Hover effects for orbiting icons */
+.animate-spin-slow:hover {
+    animation-play-state: paused;
+}
+
+/* Glowing effect for tech icons */
+.animate-spin-slow > div > div {
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.animate-spin-slow > div > div:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
