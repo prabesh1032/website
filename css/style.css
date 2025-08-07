@@ -272,18 +272,18 @@ body {
         line-height: 1.25rem;
     }
     
-    /* Smaller social icons for mobile */
+    /* Much smaller social icons for mobile */
     .social-link .w-12 {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem !important;
+        height: 2rem !important;
     }
     
     .social-link .h-12 {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem !important;
+        height: 2rem !important;
     }
     
     .social-link i {
-        font-size: 1.25rem;
+        font-size: 1rem !important;
     }
 }
