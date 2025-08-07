@@ -1,5 +1,10 @@
 /* Tailwind CSS - Include via CDN in HTML files */
 
+/* Configure Rubik as default font - Fallback for non-Tailwind elements */
+body, html {
+    font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
 /* Custom Navbar Styles */
 .navbar {
     position: fixed;
@@ -234,4 +239,36 @@ body {
 /* Skill Progress Bar Animation */
 .skill-progress-bar {
     transition: width 2s ease-out;
+}
+
+/* Footer Styles */
+/* Custom animations */
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); }
+}
+.heart-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth hover effects */
+.social-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+/* Background gradient */
+.footer-bg {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+    .footer-text {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
 }
