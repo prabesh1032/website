@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Prabesh Acharya Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Enhanced Favicon Support -->
+    <link rel="icon" href="images/useravatar.ico?v=3.0" type="image/x-icon">
+    <link rel="shortcut icon" href="images/useravatar.ico?v=3.0" type="image/x-icon">
+    <link rel="icon" href="images/useravatar.ico?v=3.0" sizes="16x16" type="image/x-icon">
+    <link rel="icon" href="images/useravatar.ico?v=3.0" sizes="32x32" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/useravatar.ico?v=3.0">
+    <meta name="theme-color" content="#4F46E5">
+    
+    <!-- Page Title -->
+    <title>Prabesh Acharya Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,11 +24,143 @@
                 extend: {
                     fontFamily: {
                         'sans': ['Rubik', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'float-delayed': 'float 3s ease-in-out infinite 1s',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in': 'slideIn 1s ease-out',
+                        'fade-in': 'fadeIn 2s ease-in',
+                        'rotate-slow': 'rotate 8s linear infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'bounce-delayed': 'bounce 2.5s infinite 0.5s',
                     }
                 }
             }
         }
     </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+            100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4); }
+        }
+        
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes wiggle {
+            0%, 7%, 14%, 21% { transform: translateX(0); }
+            3.5% { transform: translateX(-2px); }
+            10.5% { transform: translateX(2px); }
+            17.5% { transform: translateX(-2px); }
+        }
+        
+        /* Enhanced bounce animation for tools */
+        @keyframes bounceTools {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0,0,0);
+            }
+            40%, 43% {
+                transform: translate3d(0,-15px,0);
+            }
+            70% {
+                transform: translate3d(0,-7px,0);
+            }
+            90% {
+                transform: translate3d(0,-2px,0);
+            }
+        }
+        
+        .bounce-tools-1 {
+            animation: bounceTools 2s infinite;
+        }
+        
+        .bounce-tools-2 {
+            animation: bounceTools 2.5s infinite 0.5s;
+        }
+        
+        .bounce-tools-3 {
+            animation: bounceTools 3s infinite 1s;
+        }
+        
+        .bounce-tools-4 {
+            animation: bounceTools 2.2s infinite 1.5s;
+        }
+        
+        .floating-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-shape:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-shape:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        .floating-shape:nth-child(4) {
+            animation-delay: -1s;
+        }
+        
+        .particle {
+            animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+        }
+        
+        .stats-card {
+            animation: slideIn 1s ease-out;
+        }
+        
+        .stats-card:nth-child(2) { animation-delay: 0.2s; }
+        .stats-card:nth-child(3) { animation-delay: 0.4s; }
+        .stats-card:nth-child(4) { animation-delay: 0.6s; }
+        
+        .gradient-text {
+            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .morphing-border {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .morphing-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+    </style>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -311,27 +452,27 @@
 
                         <div class="grid grid-cols-2 gap-3 sm:gap-4">
                             <div
-                                class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                                <i class="ri-git-branch-line text-2xl sm:text-3xl text-orange-500 mb-2"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700">Git</p>
+                                class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
+                                <i class="ri-git-branch-line text-2xl sm:text-3xl text-orange-500 mb-2 bounce-tools-1 group-hover:scale-125 transition-all duration-300"></i>
+                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-orange-600 group-hover:font-bold transition-all duration-300">Git</p>
                             </div>
 
                             <div
-                                class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                                <i class="ri-github-line text-2xl sm:text-3xl text-gray-800 mb-2"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700">GitHub</p>
+                                class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
+                                <i class="ri-github-line text-2xl sm:text-3xl text-gray-800 mb-2 bounce-tools-2 group-hover:scale-125 transition-all duration-300"></i>
+                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-gray-900 group-hover:font-bold transition-all duration-300">GitHub</p>
                             </div>
 
                             <div
-                                class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                                <i class="ri-cloud-line text-2xl sm:text-3xl text-blue-400 mb-2"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700">Cloudflare</p>
+                                class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
+                                <i class="ri-cloud-line text-2xl sm:text-3xl text-blue-400 mb-2 bounce-tools-3 group-hover:scale-125 transition-all duration-300"></i>
+                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-blue-600 group-hover:font-bold transition-all duration-300">Cloudflare</p>
                             </div>
 
                             <div
-                                class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                                <i class="ri-database-2-line text-2xl sm:text-3xl text-purple-500 mb-2"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700">phpMyAdmin</p>
+                                class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
+                                <i class="ri-database-2-line text-2xl sm:text-3xl text-purple-500 mb-2 bounce-tools-4 group-hover:scale-125 transition-all duration-300"></i>
+                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-purple-600 group-hover:font-bold transition-all duration-300">phpMyAdmin</p>
                             </div>
                         </div>
                     </div>
@@ -531,7 +672,6 @@
             </div>
         </section>
     </main>
-
 <!-- Footer Section -->
 <footer class="footer-bg text-white py-12 relative overflow-hidden">
     <!-- Background decoration -->
