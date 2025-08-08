@@ -306,3 +306,99 @@ function highlightActiveNavItem() {
 
 // Call this function when page loads
 document.addEventListener('DOMContentLoaded', highlightActiveNavItem);
+
+// Scroll-triggered animations for service cards
+function initServiceCardAnimations() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    // Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const card = entry.target;
+            
+            if (entry.isIntersecting) {
+                // Add animate class when card comes into view
+                card.classList.add('animate');
+                
+                // For mobile devices, also add in-view class for automatic "hover" effect
+                if (window.innerWidth <= 768) {
+                    setTimeout(() => {
+                        card.classList.add('in-view');
+                    }, 300); // Small delay for stagger effect
+                }
+            } else {
+                // Remove in-view class when card goes out of view (only for mobile)
+                if (window.innerWidth <= 768) {
+                    card.classList.remove('in-view');
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all service cards
+    serviceCards.forEach((card, index) => {
+        observer.observe(card);
+        
+        // Add mouse events for desktop hover effects
+        if (window.innerWidth > 768) {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('in-view');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('in-view');
+            });
+        }
+    });
+    
+    // Handle window resize to adjust behavior
+    window.addEventListener('resize', () => {
+        serviceCards.forEach(card => {
+            if (window.innerWidth <= 768) {
+                // Mobile: remove mouse events, use scroll-based animations
+                card.classList.remove('in-view');
+                if (card.classList.contains('animate')) {
+                    setTimeout(() => {
+                        card.classList.add('in-view');
+                    }, 200);
+                }
+            } else {
+                // Desktop: remove scroll-based in-view class
+                card.classList.remove('in-view');
+            }
+        });
+    });
+}
+
+// Initialize service card animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', initServiceCardAnimations);
+
+// Enhanced smooth scrolling for internal links
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});

@@ -160,6 +160,43 @@
             0% { left: -100%; }
             100% { left: 100%; }
         }
+        
+        /* Scroll-triggered animations for service cards */
+        .service-card {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-card.animate:hover,
+        .service-card.in-view {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card.in-view .bg-gradient-to-br {
+            transform: scale(1.1) rotate(3deg);
+        }
+        
+        /* Stagger animation delays */
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.2s; }
+        .service-card:nth-child(3) { transition-delay: 0.3s; }
+        .service-card:nth-child(4) { transition-delay: 0.4s; }
+        .service-card:nth-child(5) { transition-delay: 0.5s; }
+        .service-card:nth-child(6) { transition-delay: 0.6s; }
+        
+        @media (max-width: 768px) {
+            .service-card.in-view {
+                transform: translateY(-4px) scale(1.01);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            }
+        }
     </style>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -564,187 +601,164 @@
         </section>
 
         <!-- Services & Collaboration Section -->
-        <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white relative overflow-hidden">
-            <!-- Enhanced Background Pattern -->
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white rounded-full animate-pulse"></div>
-                <div class="absolute top-3/4 right-1/4 w-24 h-24 bg-white rounded-full animate-pulse delay-1000"></div>
-                <div class="absolute bottom-1/4 left-1/3 w-16 h-16 bg-white rounded-full animate-pulse delay-2000"></div>
-                <div class="absolute top-1/2 left-1/6 w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-bounce delay-500"></div>
-                <div class="absolute bottom-1/3 right-1/3 w-12 h-12 bg-gradient-to-r from-pink-400 to-red-400 rounded-full animate-ping delay-1500"></div>
-            </div>
-            
-            <!-- Floating particles -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="absolute -top-4 -left-4 w-8 h-8 bg-yellow-300 rounded-full opacity-20 animate-float"></div>
-                <div class="absolute top-1/3 right-10 w-6 h-6 bg-cyan-300 rounded-full opacity-30 animate-float-delayed"></div>
-                <div class="absolute bottom-20 left-20 w-4 h-4 bg-pink-300 rounded-full opacity-25 animate-bounce-slow"></div>
-                <div class="absolute top-20 right-1/3 w-5 h-5 bg-purple-300 rounded-full opacity-20 animate-float"></div>
+        <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden" id="services">
+            <!-- Subtle Background Pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-100 rounded-full"></div>
+                <div class="absolute top-3/4 right-1/4 w-24 h-24 bg-blue-100 rounded-full"></div>
+                <div class="absolute bottom-1/4 left-1/3 w-16 h-16 bg-cyan-100 rounded-full"></div>
             </div>
 
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-12 sm:mb-16">
-                    <div class="inline-block p-4 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
-                        <i class="ri-rocket-2-line text-4xl sm:text-5xl text-yellow-400 animate-bounce"></i>
+                    <div class="inline-block p-3 bg-indigo-50 rounded-full mb-6 border border-indigo-100">
+                        <i class="ri-rocket-2-line text-3xl sm:text-4xl text-indigo-600"></i>
                     </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
-                        <span class="block sm:inline bg-gradient-to-r from-yellow-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">Let's Build Something Amazing</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-indigo-600">
+                        <span class="block sm:inline">Let's Build Something Amazing</span>
                     </h2>
-                    <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                        🚀 Ready to bring your ideas to life? Here's what I can help you with to create 
-                        <span class="text-yellow-300 font-semibold">extraordinary digital experiences</span>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Ready to bring your ideas to life? Here's what I can help you with to create extraordinary digital experiences
                     </p>
-                    <div class="mt-6 flex justify-center">
-                        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent rounded-full animate-pulse"></div>
-                    </div>
                 </div>
 
-                <!-- Enhanced Services Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
                     <!-- Web Development -->
-                    <div class="group bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 relative overflow-hidden">
-                        <!-- Card glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="text-center mb-4 relative z-10">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-blue-500/50">
-                                <i class="ri-code-s-slash-line text-2xl sm:text-3xl text-white group-hover:animate-pulse"></i>
+                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                        <div class="text-center mb-3 sm:mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                                <i class="ri-code-s-slash-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">💻 Web Development</h3>
-                            <p class="text-gray-200 text-sm sm:text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300">Full-stack web applications with modern frameworks like Laravel and responsive design that scales beautifully</p>
-                            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                                <span class="text-xs bg-blue-500/30 px-3 py-1 rounded-full border border-blue-400/50">Laravel • JavaScript • PHP</span>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Web Development</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Full-stack web applications with modern frameworks like Laravel and responsive design that scales beautifully</p>
+                            <div class="mt-3 sm:mt-4">
+                                <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+                                    <span class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">Laravel</span>
+                                    <span class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">JavaScript</span>
+                                    <span class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">PHP</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- E-Commerce Solutions -->
-                    <div class="group bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 relative overflow-hidden">
-                        <!-- Card glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="text-center mb-4 relative z-10">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-green-500/50">
-                                <i class="ri-shopping-cart-2-line text-2xl sm:text-3xl text-white group-hover:animate-pulse"></i>
+                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                        <div class="text-center mb-3 sm:mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                                <i class="ri-shopping-cart-2-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-green-300 transition-colors duration-300">🛒 E-Commerce Solutions</h3>
-                            <p class="text-gray-200 text-sm sm:text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300">Complete online stores with payment integration, inventory management, and powerful admin panels</p>
-                            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                                <span class="text-xs bg-green-500/30 px-3 py-1 rounded-full border border-green-400/50">Payment Gateway • Cart • Admin</span>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">E-Commerce Solutions</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Complete online stores with payment integration, inventory management, and powerful admin panels</p>
+                            <div class="mt-3 sm:mt-4">
+                                <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+                                    <span class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Payment Gateway</span>
+                                    <span class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Cart System</span>
+                                    <span class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Admin Panel</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- API Development -->
-                    <div class="group bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden">
-                        <!-- Card glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="text-center mb-4 relative z-10">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-purple-500/50">
-                                <i class="ri-settings-3-line text-2xl sm:text-3xl text-white group-hover:animate-spin"></i>
+                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                        <div class="text-center mb-3 sm:mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                                <i class="ri-settings-3-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">⚡ API Development</h3>
-                            <p class="text-gray-200 text-sm sm:text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300">RESTful APIs and robust backend services for mobile apps and web applications</p>
-                            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                                <span class="text-xs bg-purple-500/30 px-3 py-1 rounded-full border border-purple-400/50">REST • JSON • Authentication</span>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">API Development</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">RESTful APIs and robust backend services for mobile apps and web applications</p>
+                            <div class="mt-3 sm:mt-4">
+                                <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+                                    <span class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">REST API</span>
+                                    <span class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">JSON</span>
+                                    <span class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">Authentication</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Database Design -->
-                    <div class="group bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 relative overflow-hidden">
-                        <!-- Card glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-red-500/20 to-rose-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="text-center mb-4 relative z-10">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-red-500/50">
-                                <i class="ri-database-2-line text-2xl sm:text-3xl text-white group-hover:animate-pulse"></i>
+                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                        <div class="text-center mb-3 sm:mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                                <i class="ri-database-2-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-red-300 transition-colors duration-300">🗃️ Database Design</h3>
-                            <p class="text-gray-200 text-sm sm:text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300">Efficient database architecture and optimization for lightning-fast performance</p>
-                            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                                <span class="text-xs bg-red-500/30 px-3 py-1 rounded-full border border-red-400/50">MySQL • Optimization • Indexing</span>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Database Design</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Efficient database architecture and optimization for lightning-fast performance</p>
+                            <div class="mt-3 sm:mt-4">
+                                <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+                                    <span class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">MySQL</span>
+                                    <span class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">Optimization</span>
+                                    <span class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">Indexing</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- UI/UX Implementation -->
-                    <div class="group bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/25 relative overflow-hidden">
-                        <!-- Card glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-rose-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="text-center mb-4 relative z-10">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-pink-500/50">
-                                <i class="ri-palette-line text-2xl sm:text-3xl text-white group-hover:animate-pulse"></i>
+                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                        <div class="text-center mb-3 sm:mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                                <i class="ri-palette-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-pink-300 transition-colors duration-300">🎨 UI/UX Implementation</h3>
-                            <p class="text-gray-200 text-sm sm:text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300">Converting designs into pixel-perfect, responsive, and interactive user experiences</p>
-                            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                                <span class="text-xs bg-pink-500/30 px-3 py-1 rounded-full border border-pink-400/50">Responsive • Interactive • Beautiful</span>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">UI/UX Implementation</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Converting designs into pixel-perfect, responsive, and interactive user experiences</p>
+                            <div class="mt-3 sm:mt-4">
+                                <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+                                    <span class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Responsive</span>
+                                    <span class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Interactive</span>
+                                    <span class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Beautiful</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Maintenance & Support -->
-                    <div class="group bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/25 relative overflow-hidden">
-                        <!-- Card glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="text-center mb-4 relative z-10">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-yellow-500/50">
-                                <i class="ri-tools-line text-2xl sm:text-3xl text-white group-hover:animate-bounce"></i>
+                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                        <div class="text-center mb-3 sm:mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                                <i class="ri-tools-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-yellow-300 transition-colors duration-300">🔧 Maintenance & Support</h3>
-                            <p class="text-gray-200 text-sm sm:text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300">Ongoing website maintenance, updates, bug fixes, and dedicated technical support</p>
-                            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                                <span class="text-xs bg-yellow-500/30 px-3 py-1 rounded-full border border-yellow-400/50">24/7 Support • Updates • Monitoring</span>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Maintenance & Support</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Ongoing website maintenance, updates, bug fixes, and dedicated technical support</p>
+                            <div class="mt-3 sm:mt-4">
+                                <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+                                    <span class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">24/7 Support</span>
+                                    <span class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">Updates</span>
+                                    <span class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">Monitoring</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Enhanced Call to Action -->
-                <div class="text-center bg-gradient-to-r from-white/15 via-white/10 to-white/15 backdrop-blur-lg rounded-3xl p-8 sm:p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 relative overflow-hidden">
-                    <!-- Animated background pattern -->
-                    <div class="absolute inset-0 opacity-20">
-                        <div class="absolute top-4 left-4 w-3 h-3 bg-yellow-300 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-cyan-300 rounded-full animate-bounce delay-300"></div>
-                        <div class="absolute bottom-6 left-8 w-2 h-2 bg-pink-300 rounded-full animate-pulse delay-700"></div>
-                        <div class="absolute bottom-4 right-4 w-3 h-3 bg-purple-300 rounded-full animate-ping delay-1000"></div>
+                <!-- Call to Action -->
+                <div class="text-center bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-gray-200 shadow-lg">
+                    <div class="mb-4 sm:mb-6 flex justify-center items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                            <i class="ri-magic-line text-xl sm:text-2xl text-indigo-600"></i>
+                        </div>
                     </div>
                     
-                    <div class="relative z-10">
-                        <!-- Icon and sparkles -->
-                        <div class="mb-6 flex justify-center items-center space-x-2">
-                            <div class="text-3xl">✨</div>
-                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-bounce">
-                                <i class="ri-magic-line text-2xl text-white"></i>
-                            </div>
-                            <div class="text-3xl">✨</div>
-                        </div>
-                        
-                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent animate-pulse">
-                            Ready to Start Your Project?
-                        </h3>
-                        <p class="text-gray-200 text-lg sm:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-                            Let's discuss how we can turn your vision into reality. I'm here to help you build something 
-                            <span class="text-yellow-300 font-semibold animate-pulse">extraordinary</span> that stands out from the crowd! 🌟
-                        </p>
-                        
-                        <!-- Enhanced buttons with better animations -->
-                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-                            <a href="contact.html" class="group inline-flex items-center bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 hover:from-blue-600 hover:via-purple-700 hover:to-pink-700 text-white font-bold px-6 py-3 sm:px-10 sm:py-5 rounded-2xl text-base sm:text-xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 relative overflow-hidden">
-                                <!-- Button glow effect -->
-                                <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <i class="ri-chat-3-line mr-3 text-xl group-hover:animate-bounce"></i>
-                                <span class="relative z-10">Let's Talk</span>
-                                <div class="ml-2 text-lg group-hover:translate-x-1 transition-transform duration-300">🚀</div>
-                            </a>
-                            <a href="projects.html" class="group inline-flex items-center bg-transparent border-3 border-white hover:bg-white hover:text-gray-900 text-white font-bold px-6 py-3 sm:px-10 sm:py-5 rounded-2xl text-base sm:text-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 shadow-lg hover:shadow-white/50 relative overflow-hidden">
-                                <!-- Button shimmer effect -->
-                                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                                <i class="ri-eye-line mr-3 text-xl group-hover:animate-pulse"></i>
-                                <span class="relative z-10">View My Work</span>
-                                <div class="ml-2 text-lg group-hover:scale-125 transition-transform duration-300">👀</div>
-                            </a>
-                        </div>
-                        
-                        
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2">
+                        Ready to Start Your Project?
+                    </h3>
+                    <p class="text-gray-600 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+                        Let's discuss how we can turn your vision into reality. I'm here to help you build something extraordinary that stands out from the crowd!
+                    </p>
+                    
+                    <!-- Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+                        <a href="contact.html" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
+                            <i class="ri-chat-3-line mr-2"></i>
+                            Let's Talk
+                        </a>
+                        <a href="projects.html" class="inline-flex items-center bg-white border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
+                            <i class="ri-eye-line mr-2"></i>
+                            View My Work
+                        </a>
                     </div>
                 </div>
             </div>
