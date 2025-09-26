@@ -186,10 +186,10 @@
     </header>
 
     <!-- Add padding to main content to account for fixed navbar -->
-    <main class="container mx-auto pt-16">
+    <main class="pt-16">
         <!-- Hero Section -->
         <section
-            class="relative py-8 sm:py-10 lg:py-14 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-gray-900 overflow-hidden">
+            class="relative py-8 sm:py-10 lg:py-14 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-gray-900 overflow-hidden w-full">
             <div class="absolute inset-0 opacity-20">
                 <div
                     class="absolute top-0 left-0 w-24 sm:w-32 lg:w-40 h-24 sm:h-32 lg:h-40 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob">
@@ -216,7 +216,10 @@
             </div>
         </section>
 
-        <!-- Contact Form Section -->
+    </main>
+    
+    <!-- Contact Form Section -->
+    <div class="container mx-auto">
         <section class="py-12 sm:py-16 lg:py-20 bg-white" id="contact-form">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col xl:flex-row gap-8 sm:gap-10 lg:gap-12 items-start">
@@ -357,7 +360,7 @@
                 </div>
             </div>
         </section>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer class="footer-bg text-white py-12 relative overflow-hidden">

@@ -273,10 +273,10 @@
     </header>
 
     <!-- Add padding to main content to account for fixed navbar -->
-    <main class="container mx-auto pt-16">
+    <main class="pt-16">
         <!-- Hero Section -->
         <section
-            class="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-gray-800 py-8 sm:py-10 lg:py-12 relative overflow-hidden">
+            class="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-gray-800 py-8 sm:py-10 lg:py-12 relative overflow-hidden w-full">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row items-center justify-between">
                     <!-- Text Content -->
@@ -315,7 +315,10 @@
                 class="absolute bottom-0 right-0 w-24 h-24 bg-white opacity-10 rounded-full translate-x-12 translate-y-12">
             </div>
         </section>
+    </main>
 
+    <!-- Main Content Container -->
+    <div class="container mx-auto">
         <!-- About Section -->
         <section class="py-12 sm:py-16 lg:py-20 bg-gray-50" id="about">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -763,7 +766,8 @@
                 </div>
             </div>
         </section>
-    </main>
+    </div>
+    
 <!-- Footer Section -->
 <footer class="footer-bg text-white py-12 relative overflow-hidden">
     <!-- Background decoration -->
