@@ -106,10 +106,98 @@
 
     <!-- Add padding to main content to account for fixed navbar -->
     <main class="pt-16">
-        <!-- Hero Section for Project -->
-        <section
-            class="bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-gray-900 py-6 sm:py-8 lg:py-12 relative shadow-lg w-full">
-            <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <!-- Projects Hero Section -->
+        <style>
+            /* Design 2: Heartbeat/Signal Wave */
+            .heartbeat-line {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                height: 2px;
+                background: rgba(255,255,255,0.3);
+            }
+            
+            .signal-wave {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 200px;
+                height: 100px;
+                transform: translateY(-50%);
+            }
+            
+            .signal-path {
+                stroke: rgba(255,255,255,0.6);
+                stroke-width: 2;
+                fill: none;
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: draw-signal 4s ease-in-out infinite;
+            }
+            
+            @keyframes draw-signal {
+                0% { stroke-dashoffset: 1000; opacity: 0; }
+                10% { opacity: 1; }
+                50% { stroke-dashoffset: 0; }
+                90% { opacity: 1; }
+                100% { stroke-dashoffset: -1000; opacity: 0; }
+            }
+            
+            .floating-particle {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: white;
+                border-radius: 50%;
+                opacity: 0.4;
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0) translateX(0); }
+                25% { transform: translateY(-20px) translateX(10px); }
+                50% { transform: translateY(-40px) translateX(-5px); }
+                75% { transform: translateY(-20px) translateX(15px); }
+            }
+        </style>
+
+        <!-- Heartbeat Signal Hero Section -->
+        <section class="bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-gray-900 py-6 sm:py-8 lg:py-12 relative shadow-lg w-full overflow-hidden">
+            <!-- Left Heartbeat Lines -->
+            <div class="absolute left-0 top-0 bottom-0 w-40">
+                <div class="heartbeat-line"></div>
+                <svg class="signal-wave" style="left: -50px;">
+                    <path class="signal-path" d="M 0 50 L 40 50 L 50 20 L 60 80 L 70 50 L 110 50" style="animation-delay: 0s;"/>
+                </svg>
+                <svg class="signal-wave" style="left: -50px; top: 30%;">
+                    <path class="signal-path" d="M 0 50 L 40 50 L 50 20 L 60 80 L 70 50 L 110 50" style="animation-delay: 1.5s;"/>
+                </svg>
+                <svg class="signal-wave" style="left: -50px; top: 70%;">
+                    <path class="signal-path" d="M 0 50 L 40 50 L 50 20 L 60 80 L 70 50 L 110 50" style="animation-delay: 3s;"/>
+                </svg>
+                <div class="floating-particle" style="left: 20px; top: 25%; animation-delay: 0s;"></div>
+                <div class="floating-particle" style="left: 40px; top: 45%; animation-delay: 2s;"></div>
+                <div class="floating-particle" style="left: 60px; top: 65%; animation-delay: 4s;"></div>
+            </div>
+            
+            <!-- Right Heartbeat Lines -->
+            <div class="absolute right-0 top-0 bottom-0 w-40">
+                <div class="heartbeat-line"></div>
+                <svg class="signal-wave" style="right: -50px; left: auto; transform: translateY(-50%) scaleX(-1);">
+                    <path class="signal-path" d="M 0 50 L 40 50 L 50 20 L 60 80 L 70 50 L 110 50" style="animation-delay: 0.5s;"/>
+                </svg>
+                <svg class="signal-wave" style="right: -50px; left: auto; top: 30%; transform: translateY(-50%) scaleX(-1);">
+                    <path class="signal-path" d="M 0 50 L 40 50 L 50 20 L 60 80 L 70 50 L 110 50" style="animation-delay: 2s;"/>
+                </svg>
+                <svg class="signal-wave" style="right: -50px; left: auto; top: 70%; transform: translateY(-50%) scaleX(-1);">
+                    <path class="signal-path" d="M 0 50 L 40 50 L 50 20 L 60 80 L 70 50 L 110 50" style="animation-delay: 3.5s;"/>
+                </svg>
+                <div class="floating-particle" style="right: 20px; top: 35%; animation-delay: 1s;"></div>
+                <div class="floating-particle" style="right: 40px; top: 55%; animation-delay: 3s;"></div>
+                <div class="floating-particle" style="right: 60px; top: 75%; animation-delay: 5s;"></div>
+            </div>
+            
+            <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 animate-bounce">
                     Featured Projects</h1>
                 <p class="text-base sm:text-lg lg:text-xl mb-6 max-w-2xl font-bold mx-auto leading-relaxed">
@@ -560,7 +648,11 @@
 
                 <!-- Project Description -->
                 <p class="text-gray-700 max-w-4xl mx-auto text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed">
-                    My professional portfolio is a comprehensive digital showcase of my expertise, achievements, and professional journey as a full-stack web developer. The portfolio features a visually compelling design highlighting my technical skills in frontend technologies including HTML5, CSS3, JavaScript ES6+, React, and TailwindCSS, alongside backend expertise with Laravel and PHP. It showcases a curated selection of notable projects across e-commerce, travel platforms, educational technology, and service applications. The portfolio includes detailed project case studies, technology stacks, and tangible results. Visitors can explore comprehensive skill assessments with proficiency levels, certifications, and continuous learning initiatives. The resume section provides downloadable CV, detailed work experience, educational background, and key achievements. Contact integration enables direct communication with potential clients and collaborators through email, LinkedIn, GitHub, and phone. The portfolio emphasizes personal branding, reflecting technical excellence, attention to detail, and commitment to quality. Features include smooth navigation, responsive design across all devices, performance optimization, smooth animations, and accessibility standards compliance. The portfolio serves as an essential networking tool, career advancement platform, and professional identity representation, designed to attract high-quality opportunities and demonstrate technical expertise effectively to recruiters, clients, and industry professionals.
+                    My portfolio is a showcase of my professional journey as a developer specializing in frontend
+                    technologies, Laravel, and JavaScript. It features a visually appealing layout, highlighting my
+                    skills, notable projects, and achievements. Visitors can explore my resume, GitHub repositories, and
+                    contact details. The portfolio is crafted to reflect my personal brand and technical expertise,
+                    serving as an essential tool for networking and career growth.
                 </p>
 
                 <!-- Project Links -->
@@ -598,7 +690,10 @@
 
                 <!-- Project Description -->
                 <p class="text-gray-700 max-w-4xl mx-auto text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed">
-                    A landing page created using React is a dynamic and interactive web solution designed to engage users and highlight key features or services effectively. React's component-based architecture enables the seamless construction of reusable and modular elements including responsive headers, attention-grabbing hero sections, compelling testimonials, customer case studies, feature showcases, and strategic call-to-action buttons. The landing page leverages React's state management capabilities for real-time interactivity, form validation, and user engagement tracking. Features include smooth scroll animations, lazy loading for performance optimization, and dynamic content rendering. The page integrates with analytics platforms to track user behavior, conversion rates, and engagement metrics. SEO optimization ensures visibility in search results while maintaining modern design aesthetics with high-quality imagery, readable typography, and consistent branding. The responsive layout guarantees perfect display across desktop, tablet, and mobile devices. Performance optimization through code splitting, image optimization, and efficient rendering ensures fast load times. The landing page emphasizes user experience with intuitive navigation, clear value propositions, social proof elements, FAQ sections, and seamless integration with email marketing platforms. This React-based approach combines technical excellence with compelling marketing messaging to maximize lead generation, user engagement, and conversion rates for businesses seeking modern digital presence.
+                    A landing page created using React is a dynamic and interactive web solution designed to engage
+                    users and highlight key features or services effectively. React's component-based architecture
+                    enables the seamless construction of reusable and modular elements such as headers, hero sections,
+                    testimonials, and call-to-action buttons.
                 </p>
 
                 <!-- Project Links -->

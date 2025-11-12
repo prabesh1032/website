@@ -187,34 +187,163 @@
 
     <!-- Add padding to main content to account for fixed navbar -->
     <main class="pt-16">
-        <!-- Hero Section -->
-        <section
-            class="relative py-8 sm:py-10 lg:py-14 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-gray-900 overflow-hidden w-full">
-            <div class="absolute inset-0 opacity-20">
-                <div
-                    class="absolute top-0 left-0 w-24 sm:w-32 lg:w-40 h-24 sm:h-32 lg:h-40 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob">
-                </div>
-                <div
-                    class="absolute top-0 right-0 w-24 sm:w-32 lg:w-40 h-24 sm:h-32 lg:h-40 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000">
-                </div>
-                <div
-                    class="absolute bottom-0 right-0 w-24 sm:w-32 lg:w-40 h-24 sm:h-32 lg:h-40 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000">
-                </div>
-            </div>
-
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto">
-                    <h1
-                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 tracking-tight animate-fade-in-down">
-                        Let's Connect
-                    </h1>
-                    <p
-                        class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-6 sm:mb-8 leading-relaxed animate-fade-in-up">
-                        Have a project in mind or want to discuss opportunities? I'd love to hear from you.
-                    </p>
-                </div>
-            </div>
-        </section>
+       <!-- Design 1: Digital Particle Flow -->
+<section class="bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 text-gray-900 py-6 sm:py-8 lg:py-12 relative shadow-lg w-full overflow-hidden">
+    <!-- Left side - Digital particle stream -->
+    <div class="absolute left-0 top-0 bottom-0 w-40">
+        <div class="digital-stream">
+            <div class="digital-particle" style="top: 20%; animation-delay: 0s;"></div>
+            <div class="digital-particle" style="top: 35%; animation-delay: 0.3s;"></div>
+            <div class="digital-particle" style="top: 50%; animation-delay: 0.6s;"></div>
+            <div class="digital-particle" style="top: 65%; animation-delay: 0.9s;"></div>
+            <div class="digital-particle" style="top: 80%; animation-delay: 1.2s;"></div>
+        </div>
+        <div class="floating-code" style="left: 30px; top: 25%; animation-delay: 0.5s;">&lt;div&gt;</div>
+        <div class="floating-code" style="left: 50px; top: 60%; animation-delay: 2s;">{ }</div>
+    </div>
+    
+    <!-- Right side - Digital particle stream -->
+    <div class="absolute right-0 top-0 bottom-0 w-40">
+        <div class="digital-stream">
+            <div class="digital-particle" style="top: 25%; animation-delay: 0.2s;"></div>
+            <div class="digital-particle" style="top: 40%; animation-delay: 0.5s;"></div>
+            <div class="digital-particle" style="top: 55%; animation-delay: 0.8s;"></div>
+            <div class="digital-particle" style="top: 70%; animation-delay: 1.1s;"></div>
+            <div class="digital-particle" style="top: 85%; animation-delay: 1.4s;"></div>
+        </div>
+        <div class="floating-code" style="right: 40px; top: 35%; animation-delay: 1.5s;">function()</div>
+        <div class="floating-code" style="right: 20px; top: 75%; animation-delay: 3s;">.js</div>
+    </div>
+    
+    <!-- Background floating elements -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+    
+    <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6">
+            Let's Connect
+        </h1>
+        <p class="text-base sm:text-lg lg:text-xl mb-6 max-w-2xl font-bold mx-auto leading-relaxed">
+            Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+        </p>
+    </div>
+    
+    <style>
+        .digital-stream {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.7), transparent);
+        }
+        
+        .digital-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: digital-flow 4s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes digital-flow {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+        
+        .floating-code {
+            position: absolute;
+            color: rgba(255,255,255,0.3);
+            font-size: 14px;
+            font-weight: bold;
+            font-family: monospace;
+            animation: float-code 8s ease-in-out infinite;
+        }
+        
+        @keyframes float-code {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+                opacity: 0.6;
+            }
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float-shape 15s ease-in-out infinite;
+        }
+        
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 120px;
+            height: 120px;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .shape-3 {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+        
+        .shape-4 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 5%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float-shape {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, -20px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-10px, -30px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20px, 10px) rotate(270deg);
+            }
+        }
+    </style>
+</section>
 
     </main>
     
