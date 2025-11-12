@@ -153,7 +153,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Remove animation class first
+                entry.target.classList.remove('animate-fade-in-up');
+                // Force reflow to restart animation
+                void entry.target.offsetWidth;
+                // Add animation class to trigger animation
                 entry.target.classList.add('animate-fade-in-up');
+            } else {
+                // Remove animation when section goes out of view so it can re-trigger
+                entry.target.classList.remove('animate-fade-in-up');
             }
         });
     }, observerOptions);
@@ -211,14 +219,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetWidth) {
                 console.log(`Animating bar ${index + 1} to ${targetWidth}%`); // Debug log
                 
-                // Reset the width to 0
-                bar.style.width = '0%';
+                // First, remove transition to reset instantly
                 bar.style.transition = 'none';
+                bar.style.width = '0%';
                 
-                // Force a reflow to ensure the width is set to 0
-                bar.offsetHeight;
+                // Force a reflow to ensure the width is set to 0 before animating
+                void bar.offsetWidth;
                 
-                // Animate to target width with staggered delay
+                // Now add transition and animate to target width with staggered delay
                 setTimeout(() => {
                     bar.style.transition = 'width 2s ease-out';
                     bar.style.width = targetWidth + '%';
@@ -235,6 +243,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (entry.isIntersecting) {
                     // Trigger animation every time the section comes into view
                     setTimeout(() => {
+                        // Reset all counters before animating
+                        const counters = document.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            counter.innerText = '0';
+                        });
+                        // Start animation
                         animateCounters();
                     }, 300);
                 } else {
@@ -322,6 +336,10 @@ function initServiceCardAnimations() {
             const card = entry.target;
             
             if (entry.isIntersecting) {
+                // Always re-trigger the animation by removing and re-adding the class
+                card.classList.remove('animate');
+                // Force reflow to restart animation
+                void card.offsetWidth;
                 // Add animate class when card comes into view
                 card.classList.add('animate');
                 
@@ -332,10 +350,9 @@ function initServiceCardAnimations() {
                     }, 300); // Small delay for stagger effect
                 }
             } else {
-                // Remove in-view class when card goes out of view (only for mobile)
-                if (window.innerWidth <= 768) {
-                    card.classList.remove('in-view');
-                }
+                // Remove both classes when card goes out of view
+                // This allows re-animation on next scroll
+                card.classList.remove('animate', 'in-view');
             }
         });
     }, observerOptions);
