@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Enhanced Favicon Support -->
     <link rel="icon" href="images/useravatar.ico?v=3.0" type="image/x-icon">
     <link rel="shortcut icon" href="images/useravatar.ico?v=3.0" type="image/x-icon">
@@ -12,7 +12,7 @@
     <link rel="icon" href="images/useravatar.ico?v=3.0" sizes="32x32" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/useravatar.ico?v=3.0">
     <meta name="theme-color" content="#4F46E5">
-    
+
     <!-- Page Title -->
     <title>Prabesh Acharya Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -42,109 +42,173 @@
     </script>
     <style>
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
-        
+
         @keyframes glow {
-            0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
-            100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4); }
+            0% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
         }
-        
+
         @keyframes slideIn {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
-        
+
         @keyframes wiggle {
-            0%, 7%, 14%, 21% { transform: translateX(0); }
-            3.5% { transform: translateX(-2px); }
-            10.5% { transform: translateX(2px); }
-            17.5% { transform: translateX(-2px); }
+
+            0%,
+            7%,
+            14%,
+            21% {
+                transform: translateX(0);
+            }
+
+            3.5% {
+                transform: translateX(-2px);
+            }
+
+            10.5% {
+                transform: translateX(2px);
+            }
+
+            17.5% {
+                transform: translateX(-2px);
+            }
         }
-        
+
         /* Enhanced bounce animation for tools */
         @keyframes bounceTools {
-            0%, 20%, 53%, 80%, 100% {
-                transform: translate3d(0,0,0);
+
+            0%,
+            20%,
+            53%,
+            80%,
+            100% {
+                transform: translate3d(0, 0, 0);
             }
-            40%, 43% {
-                transform: translate3d(0,-15px,0);
+
+            40%,
+            43% {
+                transform: translate3d(0, -15px, 0);
             }
+
             70% {
-                transform: translate3d(0,-7px,0);
+                transform: translate3d(0, -7px, 0);
             }
+
             90% {
-                transform: translate3d(0,-2px,0);
+                transform: translate3d(0, -2px, 0);
             }
         }
-        
+
         .bounce-tools-1 {
             animation: bounceTools 2s infinite;
         }
-        
+
         .bounce-tools-2 {
             animation: bounceTools 2.5s infinite 0.5s;
         }
-        
+
         .bounce-tools-3 {
             animation: bounceTools 3s infinite 1s;
         }
-        
+
         .bounce-tools-4 {
             animation: bounceTools 2.2s infinite 1.5s;
         }
-        
+
         .floating-shape {
             animation: float 6s ease-in-out infinite;
         }
-        
+
         .floating-shape:nth-child(2) {
             animation-delay: -2s;
         }
-        
+
         .floating-shape:nth-child(3) {
             animation-delay: -4s;
         }
-        
+
         .floating-shape:nth-child(4) {
             animation-delay: -1s;
         }
-        
+
         .particle {
             animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
         }
-        
+
         .stats-card {
             animation: slideIn 1s ease-out;
         }
-        
-        .stats-card:nth-child(2) { animation-delay: 0.2s; }
-        .stats-card:nth-child(3) { animation-delay: 0.4s; }
-        .stats-card:nth-child(4) { animation-delay: 0.6s; }
-        
+
+        .stats-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .stats-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .stats-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
         .gradient-text {
             background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
             background-size: 400% 400%;
             animation: gradientShift 4s ease infinite;
         }
-        
+
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
+
         .morphing-border {
             position: relative;
             overflow: hidden;
         }
-        
+
         .morphing-border::before {
             content: '';
             position: absolute;
@@ -155,42 +219,64 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 3s infinite;
         }
-        
+
         @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
-        
+
         /* Scroll-triggered animations for service cards */
         .service-card {
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s ease-out;
         }
-        
+
         .service-card.animate {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .service-card.animate:hover,
         .service-card.in-view {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
+
         .service-card.in-view .bg-gradient-to-br {
             transform: scale(1.1) rotate(3deg);
         }
-        
+
         /* Stagger animation delays */
-        .service-card:nth-child(1) { transition-delay: 0.1s; }
-        .service-card:nth-child(2) { transition-delay: 0.2s; }
-        .service-card:nth-child(3) { transition-delay: 0.3s; }
-        .service-card:nth-child(4) { transition-delay: 0.4s; }
-        .service-card:nth-child(5) { transition-delay: 0.5s; }
-        .service-card:nth-child(6) { transition-delay: 0.6s; }
-        
+        .service-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .service-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .service-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .service-card:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .service-card:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+
         @media (max-width: 768px) {
             .service-card.in-view {
                 transform: translateY(-4px) scale(1.01);
@@ -274,170 +360,210 @@
 
     <!-- Add padding to main content to account for fixed navbar -->
     <main class="pt-16">
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-gray-800 py-8 sm:py-10 lg:py-12 relative overflow-hidden w-full">
-    <style>
-        /* Floating Icons Animation */
-        .floating-icon {
-            animation: float-icon 4s ease-in-out infinite;
-        }
+        <!-- Hero Section -->
+        <section
+            class="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-gray-800 py-8 sm:py-10 lg:py-12 relative overflow-hidden w-full">
+            <style>
+                /* Floating Icons Animation */
+                .floating-icon {
+                    animation: float-icon 4s ease-in-out infinite;
+                }
 
-        @keyframes float-icon {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
+                @keyframes float-icon {
 
-        /* Single Orbit Animation */
-        .orbit {
-            position: absolute;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            width: 320px;
-            height: 320px;
-            animation: rotate 20s linear infinite;
-        }
+                    0%,
+                    100% {
+                        transform: translateY(0px) rotate(0deg);
+                    }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+                    50% {
+                        transform: translateY(-10px) rotate(5deg);
+                    }
+                }
 
-        .orbit-dot {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
+                /* Single Orbit Animation */
+                .orbit {
+                    position: absolute;
+                    border: 2px solid rgba(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                    width: 320px;
+                    height: 320px;
+                    animation: rotate 20s linear infinite;
+                }
 
-        /* Profile Image Glow */
-        .profile-glow {
-            box-shadow: 
-                0 0 25px rgba(99, 102, 241, 0.4),
-                0 0 50px rgba(99, 102, 241, 0.3),
-                0 0 75px rgba(99, 102, 241, 0.2);
-        }
+                @keyframes rotate {
+                    from {
+                        transform: rotate(0deg);
+                    }
 
-        /* Pulse Animation */
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 
-                    0 0 25px rgba(99, 102, 241, 0.4),
-                    0 0 50px rgba(99, 102, 241, 0.3);
-            }
-            50% {
-                box-shadow: 
-                    0 0 35px rgba(99, 102, 241, 0.6),
-                    0 0 70px rgba(99, 102, 241, 0.4);
-            }
-        }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
 
-        .pulse-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-    </style>
+                .orbit-dot {
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background: rgba(255, 255, 255, 0.9);
+                    border-radius: 50%;
+                    top: -5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+                }
 
-    <!-- Floating Background Elements -->
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute top-10 left-10 w-4 h-4 bg-white opacity-20 rounded-full animate-pulse"></div>
-        <div class="absolute top-20 right-20 w-3 h-3 bg-white opacity-30 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-        <div class="absolute bottom-20 left-20 w-2 h-2 bg-white opacity-40 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-        <div class="absolute bottom-10 right-10 w-3 h-3 bg-white opacity-25 rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
-    </div>
+                /* Profile Image Glow */
+                .profile-glow {
+                    box-shadow:
+                        0 0 25px rgba(99, 102, 241, 0.4),
+                        0 0 50px rgba(99, 102, 241, 0.3),
+                        0 0 75px rgba(99, 102, 241, 0.2);
+                }
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <!-- Text Content -->
-            <div class="text-center lg:text-left lg:w-1/2 z-10">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-3 sm:mb-4 text-gray-900">
-                    Hello, I'm <br>
-                    <span id="typewriter" class="text-indigo-900 inline-block">Prabesh Acharya</span>
-                </h1>
-                <p class="text-base sm:text-lg md:text-xl font-bold mb-4 sm:mb-6 text-black max-w-2xl mx-auto lg:mx-0">
-                    A passionate Web Developer crafting web solutions that make a difference.
-                </p>
-                <a href="contact.html" id="contact-btn"
-                    class="inline-block bg-white text-indigo-500 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-lg sm:text-xl hover:bg-indigo-200 hover:text-indigo-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    Get in Touch <i class="ri-arrow-right-line ml-2"></i>
-                </a>
+                /* Pulse Animation */
+                @keyframes pulse-glow {
+
+                    0%,
+                    100% {
+                        box-shadow:
+                            0 0 25px rgba(99, 102, 241, 0.4),
+                            0 0 50px rgba(99, 102, 241, 0.3);
+                    }
+
+                    50% {
+                        box-shadow:
+                            0 0 35px rgba(99, 102, 241, 0.6),
+                            0 0 70px rgba(99, 102, 241, 0.4);
+                    }
+                }
+
+                .pulse-glow {
+                    animation: pulse-glow 3s ease-in-out infinite;
+                }
+            </style>
+
+            <!-- Floating Background Elements -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute top-10 left-10 w-4 h-4 bg-white opacity-20 rounded-full animate-pulse"></div>
+                <div class="absolute top-20 right-20 w-3 h-3 bg-white opacity-30 rounded-full animate-pulse"
+                    style="animation-delay: 0.5s;"></div>
+                <div class="absolute bottom-20 left-20 w-2 h-2 bg-white opacity-40 rounded-full animate-pulse"
+                    style="animation-delay: 1s;"></div>
+                <div class="absolute bottom-10 right-10 w-3 h-3 bg-white opacity-25 rounded-full animate-pulse"
+                    style="animation-delay: 1.5s;"></div>
             </div>
 
-            <!-- Combined Profile Image with Single Orbital Ring -->
-            <div class="lg:w-1/2 flex justify-center relative">
-                <div class="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center">
-                    <!-- Single Orbital Ring -->
-                    <div class="orbit">
-                        <div class="orbit-dot"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <!-- Text Content -->
+                    <div class="text-center lg:text-left lg:w-1/2 z-10">
+                        <h1
+                            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-3 sm:mb-4 text-gray-900">
+                            Hello, I'm <br>
+                            <span id="typewriter" class="text-indigo-900 inline-block">Prabesh Acharya</span>
+                        </h1>
+                        <p
+                            class="text-base sm:text-lg md:text-xl font-bold mb-4 sm:mb-6 text-black max-w-2xl mx-auto lg:mx-0">
+                            A passionate Web Developer crafting web solutions that make a difference.
+                        </p>
+                        <a href="contact.html" id="contact-btn"
+                            class="inline-block bg-white text-indigo-500 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-lg sm:text-xl hover:bg-indigo-200 hover:text-indigo-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Get in Touch <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
                     </div>
 
-                    <!-- Larger Central Profile Image -->
-                    <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full border-4 border-white profile-glow pulse-glow relative z-10 bg-white overflow-hidden">
-                        <img src="images/profile2.jpg" alt="Prabesh Acharya"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
+                    <!-- Combined Profile Image with Single Orbital Ring -->
+                    <div class="lg:w-1/2 flex justify-center relative">
+                        <div class="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center">
+                            <!-- Single Orbital Ring -->
+                            <div class="orbit">
+                                <div class="orbit-dot"></div>
+                            </div>
 
-                    <!-- Floating Tech Icons on Single Orbital Path -->
-                    <div class="absolute floating-icon" style="top: 20px; left: 50%; transform: translateX(-50%); animation-delay: 0s;">
-                        <div class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="ri-html5-fill text-orange-500 text-xl"></i>
-                        </div>
-                    </div>
+                            <!-- Larger Central Profile Image -->
+                            <div
+                                class="w-48 h-48 sm:w-56 sm:h-56 rounded-full border-4 border-white profile-glow pulse-glow relative z-10 bg-white overflow-hidden">
+                                <img src="images/profile2.jpg" alt="Prabesh Acharya"
+                                    class="w-full h-full object-cover rounded-full">
+                            </div>
 
-                    <div class="absolute floating-icon" style="top: 50%; right: 20px; transform: translateY(-50%); animation-delay: 1s;">
-                        <div class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="ri-css3-fill text-blue-500 text-xl"></i>
-                        </div>
-                    </div>
+                            <!-- Floating Tech Icons on Single Orbital Path -->
+                            <div class="absolute floating-icon"
+                                style="top: 20px; left: 50%; transform: translateX(-50%); animation-delay: 0s;">
+                                <div
+                                    class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ri-html5-fill text-orange-500 text-xl"></i>
+                                </div>
+                            </div>
 
-                    <div class="absolute floating-icon" style="bottom: 20px; left: 50%; transform: translateX(-50%); animation-delay: 2s;">
-                        <div class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="ri-javascript-fill text-yellow-500 text-xl"></i>
-                        </div>
-                    </div>
+                            <div class="absolute floating-icon"
+                                style="top: 50%; right: 20px; transform: translateY(-50%); animation-delay: 1s;">
+                                <div
+                                    class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ri-css3-fill text-blue-500 text-xl"></i>
+                                </div>
+                            </div>
 
-                    <div class="absolute floating-icon" style="top: 50%; left: 20px; transform: translateY(-50%); animation-delay: 3s;">
-                        <div class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="ri-reactjs-fill text-cyan-500 text-xl"></i>
-                        </div>
-                    </div>
+                            <div class="absolute floating-icon"
+                                style="bottom: 20px; left: 50%; transform: translateX(-50%); animation-delay: 2s;">
+                                <div
+                                    class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ri-javascript-fill text-yellow-500 text-xl"></i>
+                                </div>
+                            </div>
 
-                    <!-- Additional Icons at 45-degree positions -->
-                    <div class="absolute floating-icon" style="top: 40px; right: 40px; animation-delay: 0.5s;">
-                        <div class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
-                            <i class="ri-git-branch-fill text-red-500 text-lg"></i>
-                        </div>
-                    </div>
+                            <div class="absolute floating-icon"
+                                style="top: 50%; left: 20px; transform: translateY(-50%); animation-delay: 3s;">
+                                <div
+                                    class="w-12 h-12 bg-white/95 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ri-reactjs-fill text-cyan-500 text-xl"></i>
+                                </div>
+                            </div>
 
-                    <div class="absolute floating-icon" style="bottom: 40px; right: 40px; animation-delay: 1.5s;">
-                        <div class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
-                            <i class="ri-database-2-fill text-green-500 text-lg"></i>
-                        </div>
-                    </div>
+                            <!-- Additional Icons at 45-degree positions -->
+                            <div class="absolute floating-icon" style="top: 40px; right: 40px; animation-delay: 0.5s;">
+                                <div
+                                    class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
+                                    <i class="ri-git-branch-fill text-red-500 text-lg"></i>
+                                </div>
+                            </div>
 
-                    <div class="absolute floating-icon" style="bottom: 40px; left: 40px; animation-delay: 2.5s;">
-                        <div class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
-                            <i class="ri-nodejs-fill text-green-600 text-lg"></i>
-                        </div>
-                    </div>
+                            <div class="absolute floating-icon"
+                                style="bottom: 40px; right: 40px; animation-delay: 1.5s;">
+                                <div
+                                    class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
+                                    <i class="ri-database-2-fill text-green-500 text-lg"></i>
+                                </div>
+                            </div>
 
-                    <div class="absolute floating-icon" style="top: 40px; left: 40px; animation-delay: 3.5s;">
-                        <div class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
-                            <i class="ri-code-s-slash-line text-purple-500 text-lg"></i>
+                            <div class="absolute floating-icon"
+                                style="bottom: 40px; left: 40px; animation-delay: 2.5s;">
+                                <div
+                                    class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
+                                    <i class="ri-nodejs-fill text-green-600 text-lg"></i>
+                                </div>
+                            </div>
+
+                            <div class="absolute floating-icon" style="top: 40px; left: 40px; animation-delay: 3.5s;">
+                                <div
+                                    class="w-10 h-10 bg-white/90 backdrop-blur-sm border border-white rounded-full flex items-center justify-center shadow-md">
+                                    <i class="ri-code-s-slash-line text-purple-500 text-lg"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Decorative Elements -->
-    <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-16 -translate-y-16"></div>
-    <div class="absolute bottom-0 right-0 w-24 h-24 bg-white opacity-10 rounded-full translate-x-12 translate-y-12"></div>
-</section>
+            <!-- Decorative Elements -->
+            <div
+                class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-16 -translate-y-16">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-24 h-24 bg-white opacity-10 rounded-full translate-x-12 translate-y-12">
+            </div>
+        </section>
     </main>
 
     <!-- Main Content Container -->
@@ -616,26 +742,38 @@
                         <div class="grid grid-cols-2 gap-3 sm:gap-4">
                             <div
                                 class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
-                                <i class="ri-git-branch-line text-2xl sm:text-3xl text-orange-500 mb-2 bounce-tools-1 group-hover:scale-125 transition-all duration-300"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-orange-600 group-hover:font-bold transition-all duration-300">Git</p>
+                                <i
+                                    class="ri-git-branch-line text-2xl sm:text-3xl text-orange-500 mb-2 bounce-tools-1 group-hover:scale-125 transition-all duration-300"></i>
+                                <p
+                                    class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-orange-600 group-hover:font-bold transition-all duration-300">
+                                    Git</p>
                             </div>
 
                             <div
                                 class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
-                                <i class="ri-bard-line text-2xl sm:text-3xl text-red-600 mb-2 bounce-tools-2 group-hover:scale-125 transition-all duration-300"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-red-600 group-hover:font-bold transition-all duration-300">Laravel</p>
+                                <i
+                                    class="ri-bard-line text-2xl sm:text-3xl text-red-600 mb-2 bounce-tools-2 group-hover:scale-125 transition-all duration-300"></i>
+                                <p
+                                    class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-red-600 group-hover:font-bold transition-all duration-300">
+                                    Laravel</p>
                             </div>
 
                             <div
                                 class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
-                                <i class="ri-reactjs-line text-2xl sm:text-3xl text-cyan-400 mb-2 bounce-tools-3 group-hover:scale-125 transition-all duration-300"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-cyan-600 group-hover:font-bold transition-all duration-300">React</p>
+                                <i
+                                    class="ri-reactjs-line text-2xl sm:text-3xl text-cyan-400 mb-2 bounce-tools-3 group-hover:scale-125 transition-all duration-300"></i>
+                                <p
+                                    class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-cyan-600 group-hover:font-bold transition-all duration-300">
+                                    React</p>
                             </div>
 
                             <div
                                 class="group text-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-lg">
-                                <i class="ri-javascript-line text-2xl sm:text-3xl text-yellow-500 mb-2 bounce-tools-4 group-hover:scale-125 transition-all duration-300"></i>
-                                <p class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-yellow-600 group-hover:font-bold transition-all duration-300">JavaScript</p>
+                                <i
+                                    class="ri-javascript-line text-2xl sm:text-3xl text-yellow-500 mb-2 bounce-tools-4 group-hover:scale-125 transition-all duration-300"></i>
+                                <p
+                                    class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-yellow-600 group-hover:font-bold transition-all duration-300">
+                                    JavaScript</p>
                             </div>
                         </div>
                     </div>
@@ -744,115 +882,163 @@
                         <span class="block sm:inline">Let's Build Something Amazing</span>
                     </h2>
                     <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Ready to bring your ideas to life? Here's what I can help you with to create extraordinary digital experiences
+                        Ready to bring your ideas to life? Here's what I can help you with to create extraordinary
+                        digital experiences
                     </p>
                 </div>
 
                 <!-- Services Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
                     <!-- Web Development -->
-                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                    <div
+                        class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
                         <div class="text-center mb-3 sm:mb-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                            <div
+                                class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                                 <i class="ri-code-s-slash-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Web Development</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Full-stack web applications with modern frameworks like Laravel and responsive design that scales beautifully</p>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Web
+                                Development</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Full-stack web applications
+                                with modern frameworks like Laravel and responsive design that scales beautifully</p>
                             <div class="mt-3 sm:mt-4">
                                 <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
-                                    <span class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">Laravel</span>
-                                    <span class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">JavaScript</span>
-                                    <span class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">PHP</span>
+                                    <span
+                                        class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">Laravel</span>
+                                    <span
+                                        class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">JavaScript</span>
+                                    <span
+                                        class="text-xs bg-blue-50 text-blue-600 px-2 sm:px-3 py-1 rounded-full border border-blue-200">PHP</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- E-Commerce Solutions -->
-                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                    <div
+                        class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
                         <div class="text-center mb-3 sm:mb-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                            <div
+                                class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                                 <i class="ri-shopping-cart-2-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">E-Commerce Solutions</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Complete online stores with payment integration, inventory management, and powerful admin panels</p>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">E-Commerce
+                                Solutions</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Complete online stores with
+                                payment integration, inventory management, and powerful admin panels</p>
                             <div class="mt-3 sm:mt-4">
                                 <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
-                                    <span class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Payment Gateway</span>
-                                    <span class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Cart System</span>
-                                    <span class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Admin Panel</span>
+                                    <span
+                                        class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Payment
+                                        Gateway</span>
+                                    <span
+                                        class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Cart
+                                        System</span>
+                                    <span
+                                        class="text-xs bg-green-50 text-green-600 px-2 sm:px-3 py-1 rounded-full border border-green-200">Admin
+                                        Panel</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- API Development -->
-                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                    <div
+                        class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
                         <div class="text-center mb-3 sm:mb-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                            <div
+                                class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                                 <i class="ri-settings-3-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">API Development</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">RESTful APIs and robust backend services for mobile apps and web applications</p>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">API
+                                Development</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">RESTful APIs and robust
+                                backend services for mobile apps and web applications</p>
                             <div class="mt-3 sm:mt-4">
                                 <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
-                                    <span class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">REST API</span>
-                                    <span class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">JSON</span>
-                                    <span class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">Authentication</span>
+                                    <span
+                                        class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">REST
+                                        API</span>
+                                    <span
+                                        class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">JSON</span>
+                                    <span
+                                        class="text-xs bg-purple-50 text-purple-600 px-2 sm:px-3 py-1 rounded-full border border-purple-200">Authentication</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Database Design -->
-                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                    <div
+                        class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
                         <div class="text-center mb-3 sm:mb-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                            <div
+                                class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                                 <i class="ri-database-2-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Database Design</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Efficient database architecture and optimization for lightning-fast performance</p>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Database
+                                Design</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Efficient database
+                                architecture and optimization for lightning-fast performance</p>
                             <div class="mt-3 sm:mt-4">
                                 <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
-                                    <span class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">MySQL</span>
-                                    <span class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">Optimization</span>
-                                    <span class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">Indexing</span>
+                                    <span
+                                        class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">MySQL</span>
+                                    <span
+                                        class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">Optimization</span>
+                                    <span
+                                        class="text-xs bg-red-50 text-red-600 px-2 sm:px-3 py-1 rounded-full border border-red-200">Indexing</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- UI/UX Implementation -->
-                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                    <div
+                        class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
                         <div class="text-center mb-3 sm:mb-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                            <div
+                                class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                                 <i class="ri-palette-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">UI/UX Implementation</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Converting designs into pixel-perfect, responsive, and interactive user experiences</p>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">UI/UX
+                                Implementation</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Converting designs into
+                                pixel-perfect, responsive, and interactive user experiences</p>
                             <div class="mt-3 sm:mt-4">
                                 <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
-                                    <span class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Responsive</span>
-                                    <span class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Interactive</span>
-                                    <span class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Beautiful</span>
+                                    <span
+                                        class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Responsive</span>
+                                    <span
+                                        class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Interactive</span>
+                                    <span
+                                        class="text-xs bg-pink-50 text-pink-600 px-2 sm:px-3 py-1 rounded-full border border-pink-200">Beautiful</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Maintenance & Support -->
-                    <div class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
+                    <div
+                        class="service-card bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 transition-all duration-500 transform">
                         <div class="text-center mb-3 sm:mb-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
+                            <div
+                                class="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                                 <i class="ri-tools-line text-xl sm:text-2xl lg:text-3xl text-white"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Maintenance & Support</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Ongoing website maintenance, updates, bug fixes, and dedicated technical support</p>
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Maintenance
+                                & Support</h3>
+                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Ongoing website maintenance,
+                                updates, bug fixes, and dedicated technical support</p>
                             <div class="mt-3 sm:mt-4">
                                 <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
-                                    <span class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">24/7 Support</span>
-                                    <span class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">Updates</span>
-                                    <span class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">Monitoring</span>
+                                    <span
+                                        class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">24/7
+                                        Support</span>
+                                    <span
+                                        class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">Updates</span>
+                                    <span
+                                        class="text-xs bg-yellow-50 text-yellow-600 px-2 sm:px-3 py-1 rounded-full border border-yellow-200">Monitoring</span>
                                 </div>
                             </div>
                         </div>
@@ -861,27 +1047,33 @@
 
                 <!-- Enhanced Call to Action -->
                 <!-- Call to Action -->
-                <div class="text-center bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-gray-200 shadow-lg">
+                <div
+                    class="text-center bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-gray-200 shadow-lg">
                     <div class="mb-4 sm:mb-6 flex justify-center items-center">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-100 rounded-full flex items-center justify-center">
                             <i class="ri-magic-line text-xl sm:text-2xl text-indigo-600"></i>
                         </div>
                     </div>
-                    
+
                     <h3 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2">
                         Ready to Start Your Project?
                     </h3>
-                    <p class="text-gray-600 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
-                        Let's discuss how we can turn your vision into reality. I'm here to help you build something extraordinary that stands out from the crowd!
+                    <p
+                        class="text-gray-600 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+                        Let's discuss how we can turn your vision into reality. I'm here to help you build something
+                        extraordinary that stands out from the crowd!
                     </p>
-                    
+
                     <!-- Buttons -->
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-                        <a href="contact.html" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
+                        <a href="contact.html"
+                            class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
                             <i class="ri-chat-3-line mr-2"></i>
                             Let's Talk
                         </a>
-                        <a href="projects.html" class="inline-flex items-center bg-white border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
+                        <a href="projects.html"
+                            class="inline-flex items-center bg-white border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
                             <i class="ri-eye-line mr-2"></i>
                             View My Work
                         </a>
@@ -890,107 +1082,101 @@
             </div>
         </section>
     </div>
-    
-<!-- Footer Section -->
-<footer class="footer-bg text-white py-12 relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></div>
-    </div>
-    
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Main footer content -->
-        <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8">
-            <!-- Copyright section -->
-            <div class="text-center lg:text-left">
-                <p class="footer-text text-gray-300 font-medium">
-                    © 2025 <span class="text-blue-400 font-semibold">Prabesh Acharya Portfolio</span>
+
+    <!-- Footer Section -->
+    <footer class="footer-bg text-white py-12 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Main footer content -->
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8">
+                <!-- Copyright section -->
+                <div class="text-center lg:text-left">
+                    <p class="footer-text text-gray-300 font-medium">
+                        © 2025 <span class="text-blue-400 font-semibold">Prabesh Acharya Portfolio</span>
+                    </p>
+                    <p class="footer-text text-gray-400 mt-1">All rights reserved.</p>
+                </div>
+
+                <!-- Social media links -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-6">
+                    <a href="https://github.com/prabesh1032" target="_blank" rel="noopener noreferrer"
+                        class="social-link group" aria-label="GitHub Profile">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-600">
+                            <i class="ri-github-line text-2xl text-white group-hover:text-gray-300"></i>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/prabesh-acharya-8547a2321/" target="_blank"
+                        rel="noopener noreferrer" class="social-link group" aria-label="LinkedIn Profile">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-500 border border-blue-500 hover:border-blue-400">
+                            <i class="ri-linkedin-line text-2xl text-white"></i>
+                        </div>
+                    </a>
+
+                    <a href="mailto:prabesh11100@gmail.com" class="social-link group" aria-label="Send Email">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-red-600 hover:bg-red-500 border border-red-500 hover:border-red-400">
+                            <i class="ri-mail-line text-2xl text-white"></i>
+                        </div>
+                    </a>
+
+                    <a href="tel:+9779812965110" class="social-link group" aria-label="Call Phone Number">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-green-600 hover:bg-green-500 border border-green-500 hover:border-green-400">
+                            <i class="ri-phone-line text-2xl text-white"></i>
+                        </div>
+                    </a>
+
+                    <a href="https://facebook.com/pravesh.ach" target="_blank" rel="noopener noreferrer"
+                        class="social-link group" aria-label="Facebook Profile">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-600 border border-blue-600 hover:border-blue-500">
+                            <i class="ri-facebook-circle-line text-2xl text-white"></i>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/prabesh_ach/" target="_blank" rel="noopener noreferrer"
+                        class="social-link group" aria-label="Instagram Profile">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 border border-purple-500 hover:border-purple-400">
+                            <i class="ri-instagram-fill text-2xl text-white"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6"></div>
+
+            <!-- Bottom section -->
+            <div class="text-center">
+                <p class="footer-text font-medium text-gray-300 mb-2">
+                    Crafted with
+                    <span class="heart-pulse inline-block text-red-400 mx-1">❤️</span>
+                    by
+                    <strong class="text-blue-400 hover:text-blue-300 transition-colors">Prabesh Acharya</strong>
                 </p>
-                <p class="footer-text text-gray-400 mt-1">All rights reserved.</p>
-            </div>
-            
-            <!-- Social media links -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-6">
-                <a href="https://github.com/prabesh1032" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="social-link group"
-                   aria-label="GitHub Profile">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-600">
-                        <i class="ri-github-line text-2xl text-white group-hover:text-gray-300"></i>
-                    </div>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/prabesh-acharya-8547a2321/" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="social-link group"
-                   aria-label="LinkedIn Profile">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-500 border border-blue-500 hover:border-blue-400">
-                        <i class="ri-linkedin-line text-2xl text-white"></i>
-                    </div>
-                </a>
-                
-                <a href="mailto:prabesh11100@gmail.com" 
-                   class="social-link group"
-                   aria-label="Send Email">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-red-600 hover:bg-red-500 border border-red-500 hover:border-red-400">
-                        <i class="ri-mail-line text-2xl text-white"></i>
-                    </div>
-                </a>
-                
-                <a href="tel:+9779812965110" 
-                   class="social-link group"
-                   aria-label="Call Phone Number">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-green-600 hover:bg-green-500 border border-green-500 hover:border-green-400">
-                        <i class="ri-phone-line text-2xl text-white"></i>
-                    </div>
-                </a>
-                
-                <a href="https://facebook.com/pravesh.ach" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="social-link group"
-                   aria-label="Facebook Profile">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-600 border border-blue-600 hover:border-blue-500">
-                        <i class="ri-facebook-circle-line text-2xl text-white"></i>
-                    </div>
-                </a>
-                
-                <a href="https://www.instagram.com/prabesh_ach/" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="social-link group"
-                   aria-label="Instagram Profile">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 border border-purple-500 hover:border-purple-400">
-                        <i class="ri-instagram-fill text-2xl text-white"></i>
-                    </div>
-                </a>
+                <p class="footer-text text-gray-400">
+                    <span class="hidden sm:inline">•</span> Transforming ideas into digital reality <span
+                        class="hidden sm:inline">•</span>
+                </p>
+                <p class="footer-text text-gray-500 mt-3 text-sm">
+                    Web Developer | UI/UX Designer | Problem Solver
+                </p>
             </div>
         </div>
-        
-        <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6"></div>
-        
-        <!-- Bottom section -->
-        <div class="text-center">
-            <p class="footer-text font-medium text-gray-300 mb-2">
-                Crafted with 
-                <span class="heart-pulse inline-block text-red-400 mx-1">❤️</span> 
-                by 
-                <strong class="text-blue-400 hover:text-blue-300 transition-colors">Prabesh Acharya</strong>
-            </p>
-            <p class="footer-text text-gray-400">
-                <span class="hidden sm:inline">•</span> Transforming ideas into digital reality <span class="hidden sm:inline">•</span>
-            </p>
-            <p class="footer-text text-gray-500 mt-3 text-sm">
-                Web Developer | UI/UX Designer | Problem Solver
-            </p>
+
+        <!-- Bottom glow effect -->
+        <div
+            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50">
         </div>
-    </div>
-    
-    <!-- Bottom glow effect -->
-    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50"></div>
-</footer>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
